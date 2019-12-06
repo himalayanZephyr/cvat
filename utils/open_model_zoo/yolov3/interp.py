@@ -150,5 +150,11 @@ for detection in detections:
             xmax = obj['xmax']
             ymin = obj['ymin']
             ymax = obj['ymax']
+            
+            # Enforcing checks
+            xmin = max(0,xmin)
+            ymin = max(0,ymin)
+            xmax = min(xmax,width)
+            ymax = min(ymax,height)
 
             results.add_box(xmin, ymin, xmax, ymax, label, frame_number)
